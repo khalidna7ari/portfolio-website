@@ -311,7 +311,7 @@ export default async function Home() {
               icon={GitHubIcon}
             />
             <SocialLink
-              href="https://www.linkedin.com/in/khalid-nahary-1719b2301/"
+              href="https://www.linkedin.com/in/khalid-nahary/"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
