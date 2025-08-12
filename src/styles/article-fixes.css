@@ -1,0 +1,168 @@
+/* Custom article styling fixes */
+
+/* Adjust paragraph spacing - reduced */
+.prose p {
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+}
+
+/* Adjust heading spacing - reduced */
+.prose h2 {
+  margin-top: 2em !important;
+  margin-bottom: 0.75em !important;
+}
+
+.prose h3 {
+  margin-top: 1.5em !important;
+  margin-bottom: 0.75em !important;
+}
+
+/* Fix code block overflow */
+.prose pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 100%;
+  padding: 1.25rem !important;
+}
+
+/* Adjust spacing between code blocks and text - reduced */
+.prose pre + p,
+.prose p + pre {
+  margin-top: 1.5rem !important;
+}
+
+/* Fix inline code overflow */
+.prose code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Adjust spacing between list items - reduced */
+.prose ul li,
+.prose ol li {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
+}
+
+/* Adjust spacing after code blocks - reduced */
+.prose pre {
+  margin-bottom: 1.5em !important;
+}
+
+/* Fix specific overflow issues */
+.prose .overflow-fix {
+  word-break: break-word;
+}
+
+/* Adjust spacing between sections - reduced */
+.prose > div > * + * {
+  margin-top: 1.5rem !important;
+}
+
+/* Fix specific code blocks */
+.prose pre code {
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Improve readability in light mode */
+@media (prefers-color-scheme: light) {
+  .prose pre {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+
+  .prose pre code {
+    color: #334155 !important;
+  }
+
+  .prose code {
+    color: #0f766e !important;
+    background-color: #f0fdfa !important;
+  }
+}
+
+/* Enhanced dark mode styling for code blocks */
+@media (prefers-color-scheme: dark) {
+  .prose pre {
+    background-color: #0f172a !important; /* slate-900 - much darker */
+    border: 1px solid #1e293b !important; /* slate-800 */
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .prose pre code {
+    color: #e2e8f0 !important; /* slate-200 */
+  }
+
+  .prose code {
+    color: #5eead4 !important; /* teal-300 */
+    background-color: rgba(
+      15,
+      23,
+      42,
+      0.8
+    ) !important; /* slate-900 with opacity */
+  }
+
+  /* Syntax highlighting in dark mode */
+  .token.tag,
+  .token.class-name,
+  .token.selector,
+  .token.selector .class,
+  .token.selector.class,
+  .token.function {
+    color: #f472b6 !important; /* pink-400 */
+  }
+
+  .token.attr-name,
+  .token.keyword,
+  .token.rule,
+  .token.pseudo-class,
+  .token.important {
+    color: #a5b4fc !important; /* indigo-300 */
+  }
+
+  .token.attr-value,
+  .token.class,
+  .token.string,
+  .token.property {
+    color: #6ee7b7 !important; /* emerald-300 */
+  }
+
+  .token.punctuation,
+  .token.attr-equals {
+    color: #94a3b8 !important; /* slate-400 */
+  }
+
+  .token.unit,
+  .language-css .token.function {
+    color: #93c5fd !important; /* blue-300 */
+  }
+
+  .token.comment,
+  .token.operator,
+  .token.combinator {
+    color: #64748b !important; /* slate-500 */
+  }
+}
+
+/* Adjust spacing between consecutive paragraphs - reduced */
+.prose p + p {
+  margin-top: 1em !important;
+}
+
+/* Adjust heading spacing - reduced */
+.prose h2,
+.prose h3 {
+  margin-top: 2em !important;
+  margin-bottom: 0.75em !important;
+}
+
+/* Adjust spacing after lists - reduced */
+.prose ul,
+.prose ol {
+  margin-bottom: 1.5em !important;
+}

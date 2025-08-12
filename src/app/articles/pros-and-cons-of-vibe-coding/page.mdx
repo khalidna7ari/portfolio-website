@@ -1,0 +1,360 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Khalid Nahary',
+  date: '2025-01-23',
+  title: 'The Pros and Cons of Vibe Coding: When Intuition Meets Structure',
+  description:
+    "Vibe coding—that flow state where you code by feel rather than rigid planning—can be incredibly productive. But when does it help, and when does it hurt? Here's my honest take on coding by intuition.",
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+You know that feeling when you're in the zone, fingers flying across the keyboard, building something that just _feels_ right? That's vibe coding—the art of developing by intuition, letting the code flow naturally without rigid planning or extensive documentation.
+
+I've spent countless hours in this state, and I've learned that vibe coding is both a superpower and a potential trap. Let me break down when it works, when it doesn't, and how to harness it effectively.
+
+## What Is Vibe Coding?
+
+Vibe coding is development driven by intuition and flow rather than detailed specifications. It's when you:
+
+- Start coding with a rough idea and let the solution emerge
+- Make architectural decisions on the fly
+- Prioritize "feeling right" over following strict patterns
+- Code in long, uninterrupted sessions
+- Trust your instincts over extensive planning
+
+It's the opposite of methodical, test-driven, heavily documented development. And sometimes, it's exactly what you need.
+
+## The Pros: When Vibe Coding Shines
+
+### 1. Rapid Prototyping and Exploration
+
+When I'm exploring a new idea or technology, vibe coding is unbeatable. I can quickly test concepts without getting bogged down in planning:
+
+```jsx
+// This started as a simple button, but vibes led to a full component system
+function Button({ variant = 'primary', size = 'md', children, ...props }) {
+  const baseClasses = 'font-medium rounded-lg transition-colors'
+
+  const variants = {
+    primary: 'bg-blue-600 hover:bg-blue-700 text-white',
+    secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-900',
+    danger: 'bg-red-600 hover:bg-red-700 text-white',
+  }
+
+  const sizes = {
+    sm: 'px-3 py-1.5 text-sm',
+    md: 'px-4 py-2 text-base',
+    lg: 'px-6 py-3 text-lg',
+  }
+
+  return (
+    <button
+      className={`${baseClasses} ${variants[variant]} ${sizes[size]}`}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+}
+```
+
+This component evolved organically during a vibe coding session. I started with a basic button and kept adding features as I needed them. The result? A flexible, reusable component that emerged naturally.
+
+### 2. Creative Problem Solving
+
+Some of my best solutions have come from vibe coding sessions. When you're not constrained by predetermined approaches, you can discover elegant solutions:
+
+```javascript
+// A vibe-coded solution for debouncing API calls
+const useSmartSearch = (searchFn, delay = 300) => {
+  const [query, setQuery] = useState('')
+  const [results, setResults] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    if (!query.trim()) {
+      setResults([])
+      return
+    }
+
+    setIsLoading(true)
+    const timeoutId = setTimeout(async () => {
+      try {
+        const data = await searchFn(query)
+        setResults(data)
+      } catch (error) {
+        console.error('Search failed:', error)
+        setResults([])
+      } finally {
+        setIsLoading(false)
+      }
+    }, delay)
+
+    return () => clearTimeout(timeoutId)
+  }, [query, searchFn, delay])
+
+  return { query, setQuery, results, isLoading }
+}
+```
+
+This hook emerged from a vibe coding session where I needed search functionality. Instead of planning it out, I let the requirements guide the implementation, resulting in a clean, reusable solution.
+
+### 3. Flow State Productivity
+
+When vibe coding clicks, productivity skyrockets. I've built entire features in single sessions, riding the wave of momentum and inspiration. There's something magical about being in sync with your code.
+
+### 4. Learning Through Experimentation
+
+Vibe coding is excellent for learning. When exploring new libraries or patterns, I learn faster by experimenting than by reading documentation:
+
+```jsx
+// Discovered this pattern while vibe coding with React Query
+const useOptimisticUpdate = (queryKey, updateFn) => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: updateFn,
+    onMutate: async (newData) => {
+      await queryClient.cancelQueries({ queryKey })
+      const previousData = queryClient.getQueryData(queryKey)
+      queryClient.setQueryData(queryKey, newData)
+      return { previousData }
+    },
+    onError: (err, newData, context) => {
+      queryClient.setQueryData(queryKey, context.previousData)
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey })
+    },
+  })
+}
+```
+
+I stumbled upon this optimistic update pattern while vibe coding, and it became a cornerstone of my React Query usage.
+
+## The Cons: When Vibe Coding Hurts
+
+### 1. Technical Debt Accumulation
+
+The biggest downside of vibe coding is technical debt. When you're in the flow, it's easy to take shortcuts:
+
+```javascript
+// Vibe coding can lead to this...
+function processUserData(users) {
+  return users.map((user) => {
+    // TODO: Handle edge cases
+    const name = user.firstName + ' ' + user.lastName
+    const email = user.email.toLowerCase()
+    // This will break if user.profile is null
+    const avatar = user.profile.avatar || '/default-avatar.png'
+
+    return {
+      id: user.id,
+      name,
+      email,
+      avatar,
+      // Adding random properties as needed
+      isActive: user.lastLogin > Date.now() - 30 * 24 * 60 * 60 * 1000,
+      displayName: name.length > 20 ? name.substring(0, 20) + '...' : name,
+    }
+  })
+}
+```
+
+This function works, but it's fragile and hard to maintain. Vibe coding often prioritizes "working" over "robust."
+
+### 2. Inconsistent Architecture
+
+Without planning, vibe coding can lead to inconsistent patterns across your codebase:
+
+```javascript
+// File 1: Using async/await
+const fetchUser = async (id) => {
+  try {
+    const response = await fetch(`/api/users/${id}`)
+    return await response.json()
+  } catch (error) {
+    console.error('Failed to fetch user:', error)
+    return null
+  }
+}
+
+// File 2: Using promises (written during a different vibe session)
+const fetchPosts = (userId) => {
+  return fetch(`/api/users/${userId}/posts`)
+    .then((response) => response.json())
+    .catch((error) => {
+      console.error('Failed to fetch posts:', error)
+      return []
+    })
+}
+```
+
+Different vibe sessions can lead to different approaches for similar problems, making the codebase harder to understand and maintain.
+
+### 3. Poor Documentation
+
+Vibe coding rarely includes comprehensive documentation. When you're in the flow, stopping to document feels like breaking momentum:
+
+```javascript
+// What does this function actually do?
+const transformData = (data, config) => {
+  return data
+    .filter((item) => config.include.includes(item.type))
+    .map((item) => ({
+      ...item,
+      processed: true,
+      timestamp: Date.now(),
+    }))
+    .sort((a, b) =>
+      config.sortBy === 'date'
+        ? new Date(b.createdAt) - new Date(a.createdAt)
+        : a.name.localeCompare(b.name),
+    )
+}
+```
+
+Six months later, even I struggle to remember what this function does or how to use it properly.
+
+### 4. Difficult Collaboration
+
+Vibe-coded solutions can be hard for teammates to understand and extend:
+
+```jsx
+// A component that made sense during vibe coding but confuses teammates
+const DataWidget = ({ data, onUpdate, config = {} }) => {
+  const [state, setState] = useState(() =>
+    data.reduce(
+      (acc, item) => ({
+        ...acc,
+        [item.id]: {
+          ...item,
+          expanded: config.defaultExpanded || false,
+          selected: false,
+        },
+      }),
+      {},
+    ),
+  )
+
+  const handleToggle = useCallback((id, type) => {
+    setState((prev) => ({
+      ...prev,
+      [id]: {
+        ...prev[id],
+        [type]: !prev[id][type],
+      },
+    }))
+  }, [])
+
+  // ... 50 more lines of complex logic
+}
+```
+
+This component works, but new team members struggle to understand its internal logic and extend it safely.
+
+## Finding the Balance
+
+The key is knowing when to vibe code and when to be methodical:
+
+### Use Vibe Coding For:
+
+- **Prototypes and experiments**
+- **Personal projects and side projects**
+- **Learning new technologies**
+- **Creative problem-solving sessions**
+- **Initial feature exploration**
+
+### Avoid Vibe Coding For:
+
+- **Production-critical features**
+- **Complex business logic**
+- **Team projects with tight deadlines**
+- **Code that others will maintain**
+- **Security-sensitive implementations**
+
+## Making Vibe Coding Work
+
+When I do vibe code, I follow these principles:
+
+### 1. Time-box Sessions
+
+```javascript
+// Set a timer for focused vibe coding sessions
+const VIBE_SESSION_DURATION = 90 * 60 * 1000 // 90 minutes
+
+setTimeout(() => {
+  console.log('Vibe session over - time to review and refactor!')
+}, VIBE_SESSION_DURATION)
+```
+
+### 2. Refactor Ruthlessly
+
+After vibe coding, I always schedule refactoring time:
+
+```javascript
+// Before refactoring (vibe-coded)
+const processItems = (items) => {
+  return items.map((item) => {
+    const result = { ...item }
+    if (item.type === 'premium') result.badge = '⭐'
+    if (item.urgent) result.priority = 1
+    if (item.createdAt < Date.now() - 7 * 24 * 60 * 60 * 1000) result.old = true
+    return result
+  })
+}
+
+// After refactoring
+const processItems = (items) => {
+  return items.map(addItemMetadata)
+}
+
+const addItemMetadata = (item) => ({
+  ...item,
+  badge: item.type === 'premium' ? '⭐' : null,
+  priority: item.urgent ? 1 : 0,
+  isOld: isOlderThanWeek(item.createdAt),
+})
+
+const isOlderThanWeek = (date) => {
+  const weekInMs = 7 * 24 * 60 * 60 * 1000
+  return date < Date.now() - weekInMs
+}
+```
+
+### 3. Document After the Fact
+
+I capture the essence of vibe-coded solutions:
+
+```javascript
+/**
+ * Smart search hook with debouncing and loading states
+ *
+ * Emerged from vibe coding session on 2025-01-20
+ * Combines debouncing, loading states, and error handling
+ *
+ * @param {Function} searchFn - Async function that performs the search
+ * @param {number} delay - Debounce delay in milliseconds
+ * @returns {Object} { query, setQuery, results, isLoading }
+ */
+const useSmartSearch = (searchFn, delay = 300) => {
+  // Implementation...
+}
+```
+
+## Conclusion
+
+Vibe coding is a powerful tool in a developer's arsenal, but like any tool, it needs to be used appropriately. It's excellent for exploration, creativity, and rapid prototyping, but it can create problems in production environments and team settings.
+
+The key is recognizing when you're vibe coding and being intentional about it. Embrace the flow when it serves you, but always follow up with reflection, refactoring, and documentation.
+
+Some of my best code has emerged from vibe coding sessions, but some of my worst technical debt has too. The difference lies in what I do after the vibe session ends.
+
+Code with your heart, but review with your head. That's the balance that makes vibe coding a superpower rather than a liability.

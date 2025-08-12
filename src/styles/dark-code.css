@@ -1,0 +1,50 @@
+/* Dark mode code block styling */
+@media (prefers-color-scheme: dark) {
+  .prose pre {
+    background-color: #0a0d16 !important; /* Very dark background - almost black */
+    border: 1px solid #1e293b !important; /* Slate-800 border */
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.3),
+      0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .prose pre code {
+    color: #e2e8f0 !important; /* slate-200 */
+    background-color: transparent !important;
+  }
+
+  .prose :not(pre) > code {
+    color: #5eead4 !important; /* teal-300 */
+    background-color: #0a0d16 !important; /* Very dark background */
+  }
+
+  /* Syntax highlighting in dark mode */
+  .prose .token.tag,
+  .prose .token.class-name,
+  .prose .token.selector,
+  .prose .token.selector .class,
+  .prose .token.selector.class,
+  .prose .token.function {
+    color: #f472b6 !important; /* pink-400 */
+  }
+
+  .prose .token.attr-name,
+  .prose .token.keyword,
+  .prose .token.rule,
+  .prose .token.pseudo-class,
+  .prose .token.important {
+    color: #a5b4fc !important; /* indigo-300 */
+  }
+
+  .prose .token.attr-value,
+  .prose .token.class,
+  .prose .token.string,
+  .prose .token.property {
+    color: #6ee7b7 !important; /* emerald-300 */
+  }
+
+  .prose .token.punctuation,
+  .prose .token.attr-equals {
+    color: #94a3b8 !important; /* slate-400 */
+  }
+}

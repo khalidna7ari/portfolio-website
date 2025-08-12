@@ -1,0 +1,6 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import './prism.css';
+@import './article-fixes.css';
+@import './dark-code.css'; /* Import the dark code CSS */
+@import 'tailwindcss/utilities';

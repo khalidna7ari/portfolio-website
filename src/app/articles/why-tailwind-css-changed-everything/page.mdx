@@ -1,0 +1,256 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Khalid Nahary',
+  date: '2025-01-20',
+  title: 'Why Tailwind CSS Changed Everything for Me',
+  description:
+    "After years of wrestling with Bootstrap, styled-components, and CSS modules, Tailwind CSS transformed how I approach styling. Here's why it made development faster, more consistent, and genuinely enjoyable.",
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+I've been writing CSS for years. I've used Bootstrap for rapid prototyping, styled-components for component-scoped styling, and CSS modules for maintainable architecture. Each had their strengths, but none felt quite right.
+
+Then I discovered Tailwind CSS, and it completely changed how I think about styling web applications.
+
+## The Problem with Traditional Approaches
+
+Before Tailwind, my styling workflow looked something like this:
+
+**With traditional CSS:**
+
+```css
+/* styles.css */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.card + .card {
+  margin-top: 16px;
+}
+```
+
+**With styled-components:**
+
+```jsx
+const Card = styled.div`
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 16px;
+
+  & + & {
+    margin-top: 16px;
+  }
+`
+```
+
+Both approaches required me to context-switch between files, think of class names, and manage specificity. With Bootstrap, I was limited to predefined components that rarely matched my designs perfectly.
+
+## Enter Tailwind CSS
+
+With Tailwind, that same card component becomes:
+
+```jsx
+<div className="space-y-4 rounded-lg bg-white p-6 shadow-md">
+  {/* Card content */}
+</div>
+```
+
+That's it. No separate CSS file, no styled-component definition, no class naming decisions. Everything I need is right there in the markup.
+
+## What Makes Tailwind Special
+
+### 1. Utility-First Philosophy
+
+Instead of writing custom CSS for every component, Tailwind provides low-level utility classes that you compose together. This might seem verbose at first, but it's incredibly powerful:
+
+```jsx
+// Traditional approach - multiple files, custom CSS
+<div className="hero-section">
+  <h1 className="hero-title">Welcome</h1>
+  <p className="hero-subtitle">Get started today</p>
+</div>
+
+// Tailwind approach - everything in one place
+<div className="bg-gradient-to-r from-blue-500 to-purple-600
+     py-20 px-8 text-center">
+  <h1 className="mb-4 text-4xl font-bold text-white">
+    Welcome
+  </h1>
+  <p className="text-xl text-blue-100">Get started today</p>
+</div>
+```
+
+### 2. Spacing That Just Works
+
+One of my favorite features is Tailwind's spacing system. Instead of manually calculating margins and paddings, I use utilities like `space-y-4`:
+
+```jsx
+// Before: Manual margin management
+<div>
+  <div className="item">Item 1</div>
+  <div className="item" style={{ marginTop: '16px' }}>
+    Item 2
+  </div>
+  <div className="item" style={{ marginTop: '16px' }}>
+    Item 3
+  </div>
+</div>
+
+// After: Automatic spacing with space-y-4
+<div className="space-y-4">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+```
+
+The `space-y-4` utility automatically adds `margin-top: 1rem` to all child elements except the first one. It's elegant, consistent, and saves so much time.
+
+### 3. Built-in Reset and Normalization
+
+Tailwind includes Preflight, a modern CSS reset built on top of Normalize.css. This means I don't have to write this in every project:
+
+```css
+/* No more manual resets needed */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+```
+
+Tailwind handles all of this automatically, giving me a clean, consistent starting point across all browsers.
+
+### 4. Design System Consistency
+
+Tailwind's design tokens ensure consistency without thinking about it:
+
+```jsx
+// All these use the same color scale
+<div className="border-blue-600 bg-blue-500 text-blue-50">
+  <button className="bg-blue-600 hover:bg-blue-700">Click me</button>
+</div>
+```
+
+No more `#3B82F6` vs `#2563EB` vs `#1D4ED8` confusion. The scale is built-in and harmonious.
+
+## Real-World Impact
+
+Here's a practical example of how Tailwind transformed a common component:
+
+**Before (CSS Modules):**
+
+```css
+/* Card.module.css */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+```
+
+```jsx
+// Card.jsx
+import styles from './Card.module.css'
+
+function Card({ title, children }) {
+  return (
+    <div className={styles.card}>
+      <div className={styles.cardHeader}>
+        <h3 className={styles.cardTitle}>{title}</h3>
+      </div>
+      {children}
+    </div>
+  )
+}
+```
+
+**After (Tailwind):**
+
+```jsx
+function Card({ title, children }) {
+  return (
+    <div
+      className="rounded-xl bg-white p-6 shadow-lg 
+         transition-transform hover:-translate-y-0.5"
+    >
+      <div className="mb-4 border-b border-gray-200 pb-4">
+        <h3 className="mb-2 text-xl font-semibold text-gray-900">{title}</h3>
+      </div>
+      {children}
+    </div>
+  )
+}
+```
+
+Same functionality, half the code, no separate CSS file, and everything is co-located with the component.
+
+## The Development Experience
+
+What really sold me on Tailwind was how it changed my development workflow:
+
+1. **Faster iteration**: No switching between files to adjust styles
+
+2. **Better mobile-first design**: Responsive utilities like `md:text-lg` and `lg:text-xl` make responsive design intuitive
+
+3. **Easier maintenance**: Styles are co-located with components, making refactoring straightforward
+
+4. **Consistent spacing**: The spacing scale prevents random margins and paddings
+
+5. **Built-in dark mode**: `dark:bg-gray-800` makes dark mode implementation trivial
+
+## Common Concerns Addressed
+
+**"The HTML looks cluttered"**: Yes, there are more classes, but they're descriptive and self-documenting. I can understand what a component looks like just by reading the className.
+
+**"It's not semantic"**: Tailwind doesn't prevent semantic HTML. You still use proper HTML elements; you just style them with utilities instead of custom CSS.
+
+**"Bundle size"**: Tailwind's purge feature removes unused styles, often resulting in smaller CSS bundles than traditional approaches.
+
+## Conclusion
+
+Tailwind CSS didn't just change how I write styles—it changed how I think about design systems, component architecture, and developer experience.
+
+After using Bootstrap's rigid components, styled-components' JavaScript overhead, and CSS modules' file juggling, Tailwind feels like the natural evolution of CSS.
+
+It's not just a tool; it's a philosophy that prioritizes speed, consistency, and developer happiness. If you haven't tried it yet, I highly recommend giving it a shot on your next project.
+
+You might find, like I did, that it changes everything.
