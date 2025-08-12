@@ -7,9 +7,9 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Khalid Nahari',
+    template: '%s - Khalid Nahary',
     default:
-      'Khalid Nahari - Software developer, UI/UX enthusiast, and art aficianado',
+      'Khalid Nahary - Software developer, UI/UX enthusiast, and art aficianado',
   },
   description:
     'I’m Khalid, a software developer and entrepreneur based in London, United Kingdom. I’m a self-taught developer with a keen interest to teach beginners how to code.',
