@@ -90,6 +90,14 @@ export default function Uses() {
             the interface is intuitive for testing REST APIs and GraphQL
             endpoints.
           </Tool>
+          <Tool title="AWS Console">
+            Essential for managing Lambda functions, CloudFront distributions,
+            SQS queues, and Cognito authentication across multiple environments.
+          </Tool>
+          <Tool title="MongoDB Compass">
+            Visual interface for MongoDB databases. Makes querying and managing
+            document collections much more intuitive than command line.
+          </Tool>
         </ToolsSection>
         <ToolsSection title="Design">
           <Tool title="Figma">

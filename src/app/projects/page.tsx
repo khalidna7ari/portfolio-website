@@ -7,8 +7,37 @@ import logoFlashlet from '@/images/logos/flashlet-logo.png'
 
 const projects = [
   {
+    name: 'Groundsure Environmental Reports',
+    description:
+      'Ruby/Prawn PDF report system serving 5,000+ daily reports with custom templates and geospatial mapping integration',
+    link: { href: 'https://www.groundsure.com', label: 'groundsure.com' },
+    logo: logoFlashlet,
+  },
+  {
+    name: '24social CMS Platform',
+    description:
+      'Next.js CMS platform for 1,000+ UK hospitality locations with Firebase integration and branded frontend experiences',
+    link: { href: '#', label: 'mvgmedia.com' },
+    logo: logoFlashlet,
+  },
+  {
+    name: 'La Perla Beauty E-commerce',
+    description:
+      'Luxury beauty e-commerce site built with Gatsby.js, BigCommerce integration, and custom design system',
+    link: { href: '#', label: 'laperla.com' },
+    logo: logoFlashlet,
+  },
+  {
+    name: 'Schoolify Learning Platform',
+    description:
+      'Remote learning platform with live video classrooms, interactive tools, and teacher dashboard built during COVID-19',
+    link: { href: '#', label: 'schoolify.com' },
+    logo: logoFlashlet,
+  },
+  {
     name: 'Flashlet',
-    description: 'Transcribe Youtube videos and convert them to flashcards',
+    description:
+      'AI-powered tool to transcribe YouTube videos and convert them to flashcards for efficient learning',
     link: { href: 'http://planetaria.tech', label: 'flashlet.app' },
     logo: logoFlashlet,
   },
@@ -27,14 +56,15 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Things I’ve made trying to put my dent in the universe.',
+  description:
+    'Building scalable digital products across environmental tech, e-commerce, media, and education sectors.',
 }
 
 export default function Projects() {
   return (
     <SimpleLayout
-      title="Things I’ve made in my spare time."
-      intro="I always like to play around with new tech and apis. This is projects I've worked on"
+      title="Building scalable digital products across diverse industries."
+      intro="Over the past four years, I've contributed to projects spanning environmental tech, luxury e-commerce, media platforms, and education technology. From Ruby-based report systems handling millions in revenue to React applications serving thousands of users, here are some highlights from my professional journey."
     >
       <ul
         role="list"

@@ -50,7 +50,7 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export const metadata: Metadata = {
   title: 'About',
   description:
-    "I'm Khalid Nahary. I live in London, where I blend creative design with full-stack development.",
+    'Full-stack developer with extensive experience across environmental tech, e-commerce, media, and education sectors. Based in London, blending creative design with technical expertise.',
 }
 
 export default function About() {
@@ -74,36 +74,40 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              My journey started with an illustration degree and a passion for
-              visual storytelling. I've always been drawn to creating
-              things—whether through art, design, or problem-solving. When COVID
-              hit, I found myself with time to explore something I'd been
-              curious about: coding.
+              My journey started with an illustration degree from London
+              Metropolitan University and a passion for visual storytelling.
+              I've always been drawn to creating things, whether through art,
+              design, or problem-solving. During my studies, I discovered coding
+              and found that my design background gave me an intuitive
+              understanding of user experience and interface development.
             </p>
             <p>
-              What began as curiosity quickly became obsession. I taught myself
-              to code during lockdown, leveraging my design background to
-              understand frontend development intuitively. The visual nature of
-              web development felt natural, and I discovered that the
-              problem-solving skills I'd developed as an artist translated
-              perfectly to programming.
+              What began as curiosity quickly became expertise. I leveraged my
+              design background to understand frontend development naturally,
+              then progressed to full-stack development, diving into backend
+              architecture, databases, and cloud infrastructure. The visual
+              nature of web development felt natural, and I discovered that the
+              creative problem-solving skills I'd developed as an artist
+              translated perfectly to programming.
             </p>
             <p>
-              From frontend, I naturally progressed to full-stack development,
-              diving into backend architecture, databases, and system design. I
-              found myself passionate about the entire development process—from
-              user experience to server optimization. The overlap between design
-              and development became clear: both require creative
-              problem-solving and attention to detail.
+              Over the past four years, I've worked across diverse sectors—from
+              environmental tech at Groundsure to luxury e-commerce with La
+              Perla, media platforms at MVG Media, and education technology
+              during COVID-19. Each role has expanded my technical toolkit and
+              deepened my understanding of how to build scalable, user-focused
+              digital products that balance performance with usability.
             </p>
             <p>
-              Today, I work as a full-stack developer at Groundsure, where I
-              build and maintain web applications. I've also worked on projects
-              like the La Perla beauty range website, bringing together my
-              design sensibilities with technical implementation. In my spare
-              time, I'm either building personal projects, creating art, diving
-              into video games, or watching anime. The creative and technical
-              sides of my brain are constantly feeding each other.
+              Today, I work as a software developer at Groundsure, where I
+              maintain Ruby-based environmental report systems, NextJS web
+              applications, build interactive mapping tools with GeoServer and
+              Mapbox, and contribute to AWS microservices architecture. I'm
+              passionate about mentoring, knowledge sharing, and finding elegant
+              solutions to complex technical challenges. The creative and
+              technical sides of my brain are constantly feeding each other,
+              whether I'm optimizing CI/CD pipelines or designing intuitive user
+              interfaces.
             </p>
           </div>
         </div>

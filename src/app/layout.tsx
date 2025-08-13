@@ -8,11 +8,10 @@ import '@/styles/tailwind.css'
 export const metadata: Metadata = {
   title: {
     template: '%s - Khalid Nahary',
-    default:
-      'Khalid Nahary - Software developer, UI/UX enthusiast, and art aficianado',
+    default: 'Khalid Nahary - Full-stack Developer & Creative Problem Solver',
   },
   description:
-    'I’m Khalid, a software developer and entrepreneur based in London, United Kingdom. I’m a self-taught developer with a keen interest to teach beginners how to code.',
+    'Full-stack developer with extensive experience delivering scalable, user-focused digital products across environmental tech, e-commerce, media, and education sectors. Skilled in React, Next.js, Node.js, Ruby, AWS, and modern frontend architectures.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,

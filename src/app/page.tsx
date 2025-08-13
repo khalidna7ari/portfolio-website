@@ -193,7 +193,7 @@ function Resume() {
   let resume: Array<Role> = [
     {
       company: 'Groundsure',
-      title: 'Fullstack developer',
+      title: 'Software Developer',
       logo: logoGroundsure,
       start: '2022',
       end: {
@@ -202,22 +202,22 @@ function Resume() {
       },
     },
     {
-      company: 'MVG Media ltd',
-      title: 'Frontend developer',
+      company: 'MVG Media',
+      title: 'Front-end Developer',
       logo: logoMvgmedia,
       start: '2021',
       end: '2022',
     },
     {
-      company: 'We Working',
-      title: 'Chief Operational Officer',
+      company: 'WeWorking',
+      title: 'Production Coordinator',
       logo: logoWeworking,
       start: '2021',
       end: '2021',
     },
     {
       company: 'Like Digital',
-      title: 'Software developer',
+      title: 'Front-end Developer',
       logo: logoLikedigital,
       start: '2020',
       end: '2021',
@@ -289,10 +289,17 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            {`Full-stack developer, system design enthusiast, art afficianado, creative problem-solver`}
+            Full-stack developer delivering scalable, user-focused digital
+            products
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            {`I'm Khalid, a full-stack developer based in London, blending technical expertise with creative design. I specialize in React, Next.js, and AWS, building scalable applications for clients. I'm always eager to teach and collaborate on impactful projects.`}
+            I'm Khalid, a full-stack developer based in London with extensive
+            experience across environmental tech, e-commerce, media, and
+            education sectors. I specialize in React, Next.js, Node.js, with
+            some exposure to Ruby, and AWS, building robust systems that balance
+            performance, usability, and scalability. With a background in design
+            and illustration, I bring a creative, user-first perspective to
+            software development.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

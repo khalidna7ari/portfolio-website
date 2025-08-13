@@ -57,7 +57,7 @@ export default function Workshops() {
           <Appearance
             href="#"
             title="Effective Teamwork & Collaboration"
-            description="I led a workshop for second- and third-year students at London Metropolitan University, sharing insights on teamwork. I covered the challenges and benefits of working in both small and large teams, offering strategies to navigate obstacles, improve communication, and achieve goals. Drawing from my own experiences, I helped students understand how to leverage teamwork to overcome challenges and succeed in their professional journeys."
+            description="I led a workshop for second- and third-year students at London Metropolitan University, sharing insights on teamwork drawn from my experience across diverse industries—from fast-paced production environments to distributed development teams. I covered the challenges and benefits of working in both small and large teams, offering strategies to navigate obstacles, improve communication, and achieve goals in professional settings."
             event="London Metropolitan University, 2023"
             cta="Workshop details"
           />
