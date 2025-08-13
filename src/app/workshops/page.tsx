@@ -25,8 +25,8 @@ function Appearance({
   title: string
   description: string
   event: string
-  cta: string
-  href: string
+  cta?: string
+  href?: string
 }) {
   return (
     <Card as="article">
@@ -35,7 +35,8 @@ function Appearance({
       </Card.Title>
       <Card.Eyebrow decorate>{event}</Card.Eyebrow>
       <Card.Description>{description}</Card.Description>
-      <Card.Cta>{cta}</Card.Cta>
+
+      {cta && <Card.Cta>{cta}</Card.Cta>}
     </Card>
   )
 }
@@ -55,11 +56,9 @@ export default function Workshops() {
       <div className="space-y-20">
         <WorkshopSection title="Workshops">
           <Appearance
-            href="#"
             title="Effective Teamwork & Collaboration"
             description="I led a workshop for second- and third-year students at London Metropolitan University, sharing insights on teamwork drawn from my experience across diverse industries—from fast-paced production environments to distributed development teams. I covered the challenges and benefits of working in both small and large teams, offering strategies to navigate obstacles, improve communication, and achieve goals in professional settings."
             event="London Metropolitan University, 2023"
-            cta="Workshop details"
           />
         </WorkshopSection>
       </div>

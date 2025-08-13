@@ -4,42 +4,57 @@ import Image from 'next/image'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoFlashlet from '@/images/logos/flashlet-logo.png'
+import laPerlaLogo from '@/images/logos/laperla.jpg'
+import socialLogo from '@/images/logos/24social.png'
+import schoolifyLogo from '@/images/logos/schoolify.png'
+import groundsureLogo from '@/images/logos/groundsure.png'
+import vseriesLogo from '@/images/logos/vseries.png'
 
 const projects = [
   {
-    name: 'Groundsure Environmental Reports',
+    name: 'Groundsure Insights platform',
     description:
-      'Ruby/Prawn PDF report system serving 5,000+ daily reports with custom templates and geospatial mapping integration',
-    link: { href: 'https://www.groundsure.com', label: 'groundsure.com' },
-    logo: logoFlashlet,
+      'Customer facing web application with geo spatial mapping features for customers to order environmental reports',
+    link: { href: 'https://www.groundsure.io', label: 'groundsure.io' },
+    logo: groundsureLogo,
   },
   {
     name: '24social CMS Platform',
     description:
       'Next.js CMS platform for 1,000+ UK hospitality locations with Firebase integration and branded frontend experiences',
-    link: { href: '#', label: 'mvgmedia.com' },
-    logo: logoFlashlet,
+    link: { href: 'https://www.24social.io/', label: '24social.io' },
+    logo: socialLogo,
   },
   {
     name: 'La Perla Beauty E-commerce',
     description:
       'Luxury beauty e-commerce site built with Gatsby.js, BigCommerce integration, and custom design system',
     link: { href: '#', label: 'laperla.com' },
-    logo: logoFlashlet,
+    logo: laPerlaLogo,
   },
   {
     name: 'Schoolify Learning Platform',
     description:
       'Remote learning platform with live video classrooms, interactive tools, and teacher dashboard built during COVID-19',
-    link: { href: '#', label: 'schoolify.com' },
-    logo: logoFlashlet,
+    link: { href: 'https//www.schoolify.co', label: 'schoolify.co' },
+    logo: schoolifyLogo,
   },
   {
     name: 'Flashlet',
     description:
-      'AI-powered tool to transcribe YouTube videos and convert them to flashcards for efficient learning',
+      'Personal project: An AI-powered tool to transcribe YouTube videos and convert them to flashcards for efficient learning',
     link: { href: 'http://planetaria.tech', label: 'flashlet.app' },
     logo: logoFlashlet,
+  },
+  {
+    name: 'Vseries FC',
+    description:
+      'An online footballing platform where users would be able to showcase their abillities to scouts and clubs around the world',
+    link: {
+      href: 'https://vseriesfc-khalidna7aris-projects.vercel.app/',
+      label: 'vseriesfc.com',
+    },
+    logo: vseriesLogo,
   },
 ]
 
@@ -64,7 +79,7 @@ export default function Projects() {
   return (
     <SimpleLayout
       title="Building scalable digital products across diverse industries."
-      intro="Over the past four years, I've contributed to projects spanning environmental tech, luxury e-commerce, media platforms, and education technology. From Ruby-based report systems handling millions in revenue to React applications serving thousands of users, here are some highlights from my professional journey."
+      intro="Over the past five years, I've contributed to projects spanning environmental tech, luxury e-commerce, media platforms, and education technology. From Ruby-based report systems handling millions in revenue to React applications serving thousands of users, here are some highlights from my professional journey."
     >
       <ul
         role="list"
