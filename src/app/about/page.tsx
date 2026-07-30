@@ -91,7 +91,7 @@ export default function About() {
               translated perfectly to programming.
             </p>
             <p>
-              Over the past four years, I've worked across diverse sectors—from
+              Over the past six years, I've worked across diverse sectors—from
               environmental tech at Groundsure to luxury e-commerce with La
               Perla, media platforms at MVG Media, and education technology
               during COVID-19. Each role has expanded my technical toolkit and
@@ -131,7 +131,7 @@ export default function About() {
               Follow on GitHub
             </SocialLink>
             <SocialLink
-              href="https://www.linkedin.com/in/khalid-nahary-1719b2301/"
+              href="https://www.linkedin.com/in/khalid-nahary/"
               icon={LinkedInIcon}
               className="mt-4"
             >

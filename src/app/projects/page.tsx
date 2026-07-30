@@ -29,21 +29,21 @@ const projects = [
     name: 'La Perla Beauty E-commerce',
     description:
       'Luxury beauty e-commerce site built with Gatsby.js, BigCommerce integration, and custom design system',
-    link: { href: '#', label: 'laperla.com' },
+    link: { href: 'https://www.laperla.com', label: 'laperla.com' },
     logo: laPerlaLogo,
   },
   {
     name: 'Schoolify Learning Platform',
     description:
       'Remote learning platform with live video classrooms, interactive tools, and teacher dashboard built during COVID-19',
-    link: { href: 'https//www.schoolify.co', label: 'schoolify.co' },
+    link: { href: 'https://www.schoolify.co', label: 'schoolify.co' },
     logo: schoolifyLogo,
   },
   {
     name: 'Flashlet',
     description:
       'Personal project: An AI-powered tool to transcribe YouTube videos and convert them to flashcards for efficient learning',
-    link: { href: 'http://planetaria.tech', label: 'flashlet.app' },
+    link: { href: 'https://flashlet.app', label: 'flashlet.app' },
     logo: logoFlashlet,
   },
   {
@@ -79,7 +79,7 @@ export default function Projects() {
   return (
     <SimpleLayout
       title="Building scalable digital products across diverse industries."
-      intro="Over the past five years, I've contributed to projects spanning environmental tech, luxury e-commerce, media platforms, and education technology. From Ruby-based report systems handling millions in revenue to React applications serving thousands of users, here are some highlights from my professional journey."
+      intro="Over the past six years, I've contributed to projects spanning environmental tech, luxury e-commerce, media platforms, and education technology. From Ruby-based report systems handling millions in revenue to React applications serving thousands of users, here are some highlights from my professional journey."
     >
       <ul
         role="list"
