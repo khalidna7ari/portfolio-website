@@ -5,6 +5,7 @@ interface Article {
   description: string
   author: string
   date: string
+  pinned?: boolean
 }
 
 export interface ArticleWithSlug extends Article {
@@ -32,5 +33,10 @@ export async function getAllArticles() {
 
   let articles = await Promise.all(articleFilenames.map(importArticle))
 
-  return articles.sort((a, z) => +new Date(z.date) - +new Date(a.date))
+  return articles.sort((a, z) => {
+    if (!!a.pinned !== !!z.pinned) {
+      return a.pinned ? -1 : 1
+    }
+    return +new Date(z.date) - +new Date(a.date)
+  })
 }

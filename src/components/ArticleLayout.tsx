@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { useRouter } from 'next/navigation'
 
 import { AppContext } from '@/app/providers'
+import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { type ArticleWithSlug } from '@/lib/articles'
@@ -48,6 +49,7 @@ export function ArticleLayout({
           )}
           <article>
             <header className="flex flex-col">
+              {article.pinned && <Card.Tag>Pinned</Card.Tag>}
               <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                 {article.title}
               </h1>

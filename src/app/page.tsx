@@ -85,6 +85,7 @@ function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 function Article({ article }: { article: ArticleWithSlug }) {
   return (
     <Card as="article">
+      {article.pinned && <Card.Tag>Pinned</Card.Tag>}
       <Card.Title href={`/articles/${article.slug}`}>
         {article.title}
       </Card.Title>

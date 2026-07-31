@@ -9,6 +9,7 @@ function Article({ article }: { article: ArticleWithSlug }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
+        {article.pinned && <Card.Tag>Pinned</Card.Tag>}
         <Card.Title href={`/articles/${article.slug}`}>
           {article.title}
         </Card.Title>

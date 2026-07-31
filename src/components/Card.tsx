@@ -89,6 +89,25 @@ Card.Cta = function CardCta({ children }: { children: React.ReactNode }) {
   )
 }
 
+Card.Tag = function CardTag({
+  className,
+  children,
+}: {
+  className?: string
+  children: React.ReactNode
+}) {
+  return (
+    <span
+      className={clsx(
+        className,
+        'relative z-10 order-first mb-3 inline-flex w-fit items-center rounded-full bg-fuchsia-50 px-2.5 py-0.5 text-xs font-semibold text-fuchsia-600 ring-1 ring-inset ring-fuchsia-600/20 dark:bg-fuchsia-400/10 dark:text-fuchsia-400 dark:ring-fuchsia-400/30',
+      )}
+    >
+      {children}
+    </span>
+  )
+}
+
 Card.Eyebrow = function CardEyebrow<T extends React.ElementType = 'p'>({
   as,
   decorate = false,
